@@ -23,12 +23,13 @@ public class Functions {
      * - decrement
      * - square
      *
-     * @return an instance of {@link FunctionMap} that contains all listed functions
+     * @return an instance o f {@link FunctionMap} that contains all listed functions
      */
     public static FunctionMap<Integer, Integer> intFunctionMap() {
         FunctionMap<Integer, Integer> intFunctionMap = new FunctionMap<>();
 
         intFunctionMap.addFunction("abs", Math::abs);
+
         intFunctionMap.addFunction("sgn", x -> Integer.compare(x,0));
         intFunctionMap.addFunction("increment", x -> x + 1);
         intFunctionMap.addFunction("decrement", x -> x-1);
