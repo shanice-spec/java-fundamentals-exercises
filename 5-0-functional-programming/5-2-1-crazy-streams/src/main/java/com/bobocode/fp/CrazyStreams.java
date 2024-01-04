@@ -3,7 +3,6 @@ package com.bobocode.fp;
 import com.bobocode.model.Account;
 import com.bobocode.model.Sex;
 import com.bobocode.fp.exception.EntityNotFoundException;
-import com.bobocode.util.ExerciseNotCompletedException;
 import lombok.AllArgsConstructor;
 
 import java.math.BigDecimal;
@@ -218,8 +217,7 @@ public class CrazyStreams {
      */
     public Map<Character, Long> getCharacterFrequencyIgnoreCaseInFirstAndLastNames(int nameLengthBound) {
         return accounts.stream()
-                .flatMap(a ->
-                        Stream.of(a.getFirstName(), a.getLastName()))
+                .flatMap(a -> Stream.of(a.getFirstName(), a.getLastName()))
                 .filter(name -> name.length() >= nameLengthBound)
                 .map(String::toLowerCase)
                 .flatMapToInt(String::chars)
